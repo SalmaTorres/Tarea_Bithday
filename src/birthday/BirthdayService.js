@@ -17,8 +17,12 @@ export class BirthdayService {
         subject: "Happy Birthday!",
         text: `Happy Birthday, dear ${employee.getFirstName()}!`,
       };
-      transport.sendMail(message);
+      this.messageDelivery(message, transport);
     });
+  }
+
+  messageDelivery(message, transport) {
+    transport.sendMail(message);
   }
 
   getEmployeesByBirthDate(ourDate, fileName) {
