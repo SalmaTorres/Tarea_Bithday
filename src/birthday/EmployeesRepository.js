@@ -1,3 +1,8 @@
+import fs from "fs";
+import path from "path";
+import { Employee } from "./Employee";
+
+
 export class EmployeesRepository {
     constructor(fileName) { 
         this.fileName = fileName; 

@@ -14,6 +14,7 @@ export class SmtpGreetingDelivery {
           subject: "Happy Birthday!",
           text: `Happy Birthday, dear ${employee.getFirstName()}!`,
         };
+        
         this.transport.sendMail(message);
       }
   }
