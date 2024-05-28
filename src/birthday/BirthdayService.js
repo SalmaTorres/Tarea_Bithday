@@ -21,7 +21,7 @@ export class BirthdayService {
     });
   }
 
-  messageDelivery(message, transport) {
+  sendGrettingToEmployee(message, transport) {
     transport.sendMail(message);
   }
 
