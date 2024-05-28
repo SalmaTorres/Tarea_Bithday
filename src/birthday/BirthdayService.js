@@ -9,19 +9,19 @@ export class BirthdayService {
     const employees = this.getEmployeesByBirthDate(ourDate, fileName);
     
     employees.forEach((employee) => {
-      const message = {
-        host: smtpUrl,
-        port: smtpPort,
-        from: "sender@here.com",
-        to: [employee.getEmail()],
-        subject: "Happy Birthday!",
-        text: `Happy Birthday, dear ${employee.getFirstName()}!`,
-      };
-      this.messageDelivery(message, transport);
+      this.sendGrettingToEmployee(smtpUrl, smtpPort, transport, employee);
     });
   }
 
-  sendGrettingToEmployee(message, transport) {
+  sendGrettingToEmployee(smtpUrl, smtpPort, transport, employee) {
+    const message = {
+      host: smtpUrl,
+      port: smtpPort,
+      from: "sender@here.com",
+      to: [employee.getEmail()],
+      subject: "Happy Birthday!",
+      text: `Happy Birthday, dear ${employee.getFirstName()}!`,
+    };
     transport.sendMail(message);
   }
 
